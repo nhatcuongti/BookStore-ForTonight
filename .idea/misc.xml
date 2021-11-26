@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/StudioProjects/BookStore-CNPM/app/src/main/res/layout/login_screen.xml" value="0.25" />
         <entry key="..\:/Users/CSM/AndroidStudioProjects/BookStore/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/CSM/AndroidStudioProjects/BookStore/app/src/main/res/layout/home_page_admin.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/CSM/AndroidStudioProjects/BookStore/app/src/main/res/layout/home_page_buyer.xml" value="0.36666666666666664" />
