@@ -3,7 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Admin/StudioProjects/BookStore-CNPM/app/src/main/res/layout/login_screen.xml" value="0.25" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.240625" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/drawable/ic_home.xml" value="0.12604166666666666" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/drawable/ic_launcher_background.xml" value="0.240625" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/drawable/ic_shopingcart.xml" value="0.12604166666666666" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/bottombar_buyer_layout.xml" value="0.2" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/content_main.xml" value="0.10989583333333333" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/homepage_admin.xml" value="0.33" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/homepage_buyer.xml" value="0.1" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/homepage_seller.xml" value="0.1272644927536232" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/login_screen.xml" value="0.22" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/register_screen.xml" value="0.15" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/topbar_buyer_layout.xml" value="0.2" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/menu/menu_bottombar_buyer.xml" value="0.12" />
+        <entry key="..\:/BookStore-CNPM/app/src/main/res/menu/menu_topbar_buyer.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/CSM/AndroidStudioProjects/BookStore/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/CSM/AndroidStudioProjects/BookStore/app/src/main/res/layout/home_page_admin.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/CSM/AndroidStudioProjects/BookStore/app/src/main/res/layout/home_page_buyer.xml" value="0.36666666666666664" />

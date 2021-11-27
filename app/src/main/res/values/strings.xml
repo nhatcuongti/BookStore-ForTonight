@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">BookStore</string>
+    <string name="navigation_drawer_open">Open navigation draw</string>
+    <string name="navigation_drawer_close">Close navigation draw</string>
+    <string name="bottom_nav_buyer_home">Home</string>
+    <string name="bottom_nav_buyer_report">Report</string>
+    <string name="bottom_nav_buyer_favorite">Favorite</string>
+    <string name="bottom_nav_buyer_profile">My profile</string>
 </resources>
