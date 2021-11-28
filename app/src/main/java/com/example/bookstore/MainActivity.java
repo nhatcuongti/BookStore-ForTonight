@@ -20,6 +20,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage_buyer);
 
+        initTopAndBottomBar();
+
+    }
+
+    /**
+     * Initialize Action Bar on top and bottom
+     */
+    void initTopAndBottomBar(){
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolBar = findViewById(R.id.toolbar);
