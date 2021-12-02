@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity"
+    tools:context=".MainBuyerHomepageActivity"
     tools:openDrawer="start">
 
     <com.google.android.material.navigation.NavigationView
@@ -21,11 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <include android:id="@+id/bottombar_buyer_layout"
-        layout="@layout/bottombar_buyer_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
 
 
 
