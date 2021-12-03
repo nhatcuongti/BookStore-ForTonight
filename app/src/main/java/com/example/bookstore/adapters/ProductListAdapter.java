@@ -25,9 +25,10 @@ import java.util.Random;
  */
 public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.ViewHolder> {
     private ArrayList<Product> productList;
-
-    public ProductListAdapter( ArrayList<Product> productList) {
+    private OnProductListener mOnProductListener;
+    public ProductListAdapter( ArrayList<Product> productList, OnProductListener onProductListener) {
         this.productList = productList;
+        this.mOnProductListener = onProductListener;
     }
 
 
@@ -37,14 +38,12 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_onlist_layout, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view,  mOnProductListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product data = productList.get(position);
-        Random rnd = new Random();
-        int currentColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
         holder.imageProduct.setImageResource(R.mipmap.img);
         holder.nameProduct.setText(data.getName());
         holder.price.setText(data.getPrice() + " vnđ");
@@ -56,15 +55,26 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imageProduct;
         TextView nameProduct;
         TextView price;
-        ViewHolder(View v) {
+        OnProductListener onProductListener;
+        ViewHolder(View v, OnProductListener onProductListener) {
             super(v);
             imageProduct = v.findViewById(R.id.imageProductonList);
             nameProduct = v.findViewById(R.id.nameProductonList);
             price = v.findViewById(R.id.priceProductonList);
+            this.onProductListener = onProductListener;
+            v.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+           onProductListener.onProductClick(getAdapterPosition());
+        }
+    }
+    public interface OnProductListener{
+        void onProductClick(int positionProduct);
     }
 }

@@ -1,9 +1,15 @@
 package com.example.bookstore.models;
 
-public class Product {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Product implements Serializable {
+    private static final long serialVersionUID = 1L; //
     private String name;
     private String price;
-    private int quantity;
+    private Integer quantity;
     private String description;
 
     public Product(String name, String price, int quantity, String description) {
@@ -12,6 +18,7 @@ public class Product {
         this.quantity = quantity;
         this.description = description;
     }
+
 
     public String getName() {
         return name;
@@ -44,5 +51,6 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+
 
 }
