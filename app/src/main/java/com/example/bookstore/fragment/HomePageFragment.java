@@ -14,12 +14,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.bookstore.R;
 import com.example.bookstore.adapters.ReportAdapter;
-import com.example.bookstore.models.Report;
+import com.example.bookstore.models.ReportModel;
 
 import java.util.ArrayList;
 
 public class HomePageFragment extends Fragment {
-    private ArrayList<Report> Reports = new ArrayList<>();
+    private ArrayList<ReportModel> reportModels = new ArrayList<>();
     private ReportAdapter reportAdapter;
     private ListView lv;
 
@@ -35,12 +35,12 @@ public class HomePageFragment extends Fragment {
 
         initData();
 
-        reportAdapter = new ReportAdapter(getActivity(), Reports);
+        reportAdapter = new ReportAdapter(getActivity(), reportModels);
         lv.setAdapter(reportAdapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), Reports.get(position).getTittle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), reportModels.get(position).getTittle(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -50,9 +50,9 @@ public class HomePageFragment extends Fragment {
      */
     public void initData(){
         lv = getActivity().findViewById(R.id.lvReport);
-        Reports.add(new Report("nhatcuongti", "nvmtriet", "Qua Bo Lao"));
-        Reports.add(new Report("nhatcuongti", "lthieu", "Qua Lao again"));
-        Reports.add(new Report("nhatcuongti", "nhatks14", "Qua Diem"));
-        Reports.add(new Report("nhatcuongti", "DatAKC++", "Qua Long"));
+        reportModels.add(new ReportModel("nhatcuongti", "nvmtriet", "Qua Bo Lao"));
+        reportModels.add(new ReportModel("nhatcuongti", "lthieu", "Qua Lao again"));
+        reportModels.add(new ReportModel("nhatcuongti", "nhatks14", "Qua Diem"));
+        reportModels.add(new ReportModel("nhatcuongti", "DatAKC++", "Qua Long"));
     }
 }

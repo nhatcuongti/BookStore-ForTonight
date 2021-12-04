@@ -1,11 +1,8 @@
 package com.example.bookstore.adapters;
 
-import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,19 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookstore.R;
-import com.example.bookstore.models.Product;
+import com.example.bookstore.models.ProductModel;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 
 /**
  * Created by reiko-lhnhat on 12/1/2021.
  */
 public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.ViewHolder> {
-    private ArrayList<Product> productList;
+    private ArrayList<ProductModel> productList;
     private OnProductListener mOnProductListener;
-    public ProductListAdapter( ArrayList<Product> productList, OnProductListener onProductListener) {
+    public ProductListAdapter(ArrayList<ProductModel> productList, OnProductListener onProductListener) {
         this.productList = productList;
         this.mOnProductListener = onProductListener;
     }
@@ -43,7 +39,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Product data = productList.get(position);
+        ProductModel data = productList.get(position);
         holder.imageProduct.setImageResource(R.mipmap.img);
         holder.nameProduct.setText(data.getName());
         holder.price.setText(data.getPrice() + " vnđ");
@@ -74,6 +70,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
            onProductListener.onProductClick(getAdapterPosition());
         }
     }
+
     public interface OnProductListener{
         void onProductClick(int positionProduct);
     }

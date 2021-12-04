@@ -4,10 +4,10 @@ package com.example.bookstore.models;
  * Author : Hao
  * Describe : Report which used for process report
  */
-public class Report {
+public class ReportModel {
     private String Sender, reportedUser, Tittle;
 
-    public Report(String sender, String reportedUser, String tittle) {
+    public ReportModel(String sender, String reportedUser, String tittle) {
         Sender = sender;
         this.reportedUser = reportedUser;
         Tittle = tittle;

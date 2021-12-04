@@ -1,26 +1,15 @@
 package com.example.bookstore;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bookstore.adapters.ProductListAdapter;
-import com.example.bookstore.models.Product;
-import com.google.android.material.navigation.NavigationView;
-
-import java.util.ArrayList;
+import com.example.bookstore.models.ProductModel;
 
 /**
  * Created by reiko-lhnhat on 12/3/2021.
@@ -47,7 +36,7 @@ public class BuyerDetailProductActivity extends AppCompatActivity {
         backward = findViewById(R.id.backward_from_detailproduct_buyer);
 
         Intent intent = getIntent();
-        Product product = (Product) intent.getSerializableExtra("clickProduct_ProductDetail");
+        ProductModel product = (ProductModel) intent.getSerializableExtra("clickProduct_ProductDetail");
         imageProduct.setImageResource(R.mipmap.img);
         nameProduct.setText(product.getName());
         priceProduct.setText("Price: " + product.getPrice() +"vnđ");

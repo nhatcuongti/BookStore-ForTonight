@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.bookstore.R;
-import com.example.bookstore.models.Report;
+import com.example.bookstore.models.ReportModel;
 
 import java.util.ArrayList;
 
@@ -18,16 +18,16 @@ import java.util.ArrayList;
  */
 public class ReportAdapter extends BaseAdapter {
     Context context;
-    ArrayList<Report> Reports;
+    ArrayList<ReportModel> reportModels;
 
-    public ReportAdapter(Context context, ArrayList<Report> reports) {
+    public ReportAdapter(Context context, ArrayList<ReportModel> reportModels) {
         this.context = context;
-        Reports = reports;
+        this.reportModels = reportModels;
     }
 
     @Override
     public int getCount() {
-        return Reports.size();
+        return reportModels.size();
     }
 
     @Override
@@ -52,13 +52,13 @@ public class ReportAdapter extends BaseAdapter {
         TextView Tittle = convertView.findViewById(R.id.titleInReport);
 
         //Change data for layout
-        String senderText = "Sender : " + Reports.get(position).getSender();
+        String senderText = "Sender : " + reportModels.get(position).getSender();
         Sender.setText(senderText);
 
-        String reportedUserText = "Report to : " + Reports.get(position).getReportedUser();
+        String reportedUserText = "Report to : " + reportModels.get(position).getReportedUser();
         reportedUser.setText(reportedUserText);
 
-        String tittleText = "Tittle : " + Reports.get(position).getTittle();
+        String tittleText = "Tittle : " + reportModels.get(position).getTittle();
         Tittle.setText(tittleText);
 
 

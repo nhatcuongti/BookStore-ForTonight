@@ -5,14 +5,14 @@ import android.os.Parcelable;
 
 import java.io.Serializable;
 
-public class Product implements Serializable {
+public class ProductModel implements Serializable {
     private static final long serialVersionUID = 1L; //
     private String name;
     private String price;
     private Integer quantity;
     private String description;
 
-    public Product(String name, String price, int quantity, String description) {
+    public ProductModel(String name, String price, int quantity, String description) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;

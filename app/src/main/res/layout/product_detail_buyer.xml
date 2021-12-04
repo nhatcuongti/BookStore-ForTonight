@@ -55,9 +55,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@id/bottombar_buyer_layout"
-        app:layout_constraintTop_toBottomOf="@id/topbar_buyer_layout"
         android:layout_margin="1dp">
+    <!--        app:layout_constraintBottom_toTopOf="@id/bottombar_buyer_layout"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/topbar_buyer_layout"-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
