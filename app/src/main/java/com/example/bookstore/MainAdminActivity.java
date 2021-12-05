@@ -24,9 +24,9 @@ public class MainAdminActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homepage_admin);
+        setContentView(R.layout.login_screen);
 
-        initData();
+        //initData();
     }
 
     /**
