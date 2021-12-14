@@ -1,13 +1,19 @@
 package com.example.bookstore;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.EditText;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookstore.adapters.ProductListAdapter;
@@ -22,6 +28,7 @@ public class MainBuyerHomepageActivity extends AppCompatActivity implements Prod
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolBar;
+    EditText searchView;
 
     private ArrayList<ProductModel> listProduct;
     private RecyclerView recyclerView;
@@ -36,11 +43,32 @@ public class MainBuyerHomepageActivity extends AppCompatActivity implements Prod
         initTopAndBottomBar();
         initData();
 
-//        recyclerView = findViewById(R.id.list_product);
-//        productListAdapter = new ProductListAdapter(listProduct, this);
-//        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(),2);
-//        recyclerView.setLayoutManager(gridLayoutManager);
-//        recyclerView.setAdapter(productListAdapter);
+        searchView = findViewById(R.id.search_bar_view);
+        //set recycle
+        recyclerView = findViewById(R.id.list_product);
+        productListAdapter = new ProductListAdapter(listProduct, this);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(),2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setAdapter(productListAdapter);
+
+
+        searchView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                productListAdapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+
+        });
     }
 
     /**
@@ -51,7 +79,6 @@ public class MainBuyerHomepageActivity extends AppCompatActivity implements Prod
         navigationView = findViewById(R.id.nav_view);
         toolBar = findViewById(R.id.toolbar);
         setSupportActionBar(toolBar);
-
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolBar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
