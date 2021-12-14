@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookstore.adapters.ProductListAdapter;
@@ -36,11 +37,11 @@ public class MainBuyerHomepageActivity extends AppCompatActivity implements Prod
         initTopAndBottomBar();
         initData();
 
-//        recyclerView = findViewById(R.id.list_product);
-//        productListAdapter = new ProductListAdapter(listProduct, this);
-//        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(),2);
-//        recyclerView.setLayoutManager(gridLayoutManager);
-//        recyclerView.setAdapter(productListAdapter);
+        recyclerView = findViewById(R.id.list_product);
+        productListAdapter = new ProductListAdapter(listProduct, this);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(),2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setAdapter(productListAdapter);
     }
 
     /**

@@ -17,11 +17,6 @@
         <entry key="..\:/BookStore-CNPM/app/src/main/res/layout/topbar_buyer_layout.xml" value="0.2" />
         <entry key="..\:/BookStore-CNPM/app/src/main/res/menu/menu_bottombar_buyer.xml" value="0.12" />
         <entry key="..\:/BookStore-CNPM/app/src/main/res/menu/menu_topbar_buyer.xml" value="0.10989583333333333" />
-        <entry key="..\:/Users/Admin/StudioProjects/BookStore-CNPM-new/app/src/main/res/layout/activity_buyer_cart.xml" value="0.25" />
-        <entry key="..\:/Users/Admin/StudioProjects/BookStore-CNPM-new/app/src/main/res/layout/login_screen.xml" value="0.264" />
-        <entry key="..\:/Users/Admin/StudioProjects/BookStore-CNPM-new/app/src/main/res/layout/payment_screen.xml" value="0.25" />
-        <entry key="..\:/Users/Admin/StudioProjects/BookStore-CNPM-new/app/src/main/res/layout/product_detail_buyer.xml" value="0.25" />
-        <entry key="..\:/Users/Admin/StudioProjects/BookStore-CNPM-new/app/src/main/res/layout/product_onlist_layout.xml" value="0.25" />
         <entry key="..\:/Users/CSM/AndroidStudioProjects/BookStore-CNPM/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.3828125" />
         <entry key="..\:/Users/CSM/AndroidStudioProjects/BookStore-CNPM/app/src/main/res/drawable/ic_home.xml" value="0.3828125" />
         <entry key="..\:/Users/CSM/AndroidStudioProjects/BookStore-CNPM/app/src/main/res/layout/fragment_homepage_admin.xml" value="0.36666666666666664" />
@@ -56,6 +51,7 @@
         <entry key="..\:/Users/Ti/AndroidStudioProjects/BookStore-CNPM-DoAn/app/src/main/res/layout/homepage_seller.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Ti/AndroidStudioProjects/BookStore-CNPM-DoAn/app/src/main/res/layout/layout_products_cart.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Ti/AndroidStudioProjects/BookStore-CNPM-DoAn/app/src/main/res/layout/layout_report.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Ti/AndroidStudioProjects/BookStore-CNPM-DoAn/app/src/main/res/layout/payment_screen.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Ti/AndroidStudioProjects/BookStore-CNPM-DoAn/app/src/main/res/layout/product_detail_buyer.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Ti/AndroidStudioProjects/BookStore-CNPM-DoAn/app/src/main/res/layout/product_onlist_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Ti/AndroidStudioProjects/BookStore-CNPM-DoAn/app/src/main/res/layout/register_screen.xml" value="0.33" />
