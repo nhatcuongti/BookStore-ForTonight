@@ -12,6 +12,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.bookstore.fragment.HomePageFragment;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 /**
  * Author : Hao
  * Describe : This is Main Activity for Admin
@@ -24,7 +30,12 @@ public class MainAdminActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.payment_screen);
+        setContentView(R.layout.add_product_seller);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message");
+
+        myRef.setValue("Hello, World!");
 
         //initData();
     }
