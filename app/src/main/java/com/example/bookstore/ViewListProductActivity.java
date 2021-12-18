@@ -32,7 +32,11 @@ public class ViewListProductActivity extends AppCompatActivity{
         list = new ArrayList<>();
 
         initData();
-        setAdapter();
+        try{
+            setAdapter();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
 
     }

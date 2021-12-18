@@ -31,6 +31,7 @@ public class product_management extends RecyclerView.Adapter<product_management.
         private ImageView image;
 
         public MyViewHolder(final View view){
+
             super(view);
             name = view.findViewById(R.id.nameProduct);
             price = view.findViewById(R.id.priceProduct);
@@ -42,23 +43,26 @@ public class product_management extends RecyclerView.Adapter<product_management.
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        System.out.println("On create view holder");
         View itemView = LayoutInflater.from(context).inflate(R.layout.layout_product_management, parent, false);
         return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull product_management.MyViewHolder holder, int position) {
+        System.out.println("On bind view holder");
         ItemOrderModel item = list.get(position);
         if (item == null)
             return;
 
         holder.name.setText(item.getNameBook());
-        holder.price.setText(item.getPrice());
+        holder.price.setText(String.valueOf(item.getPrice()));
         holder.image.setImageResource(item.getImg());
     }
 
     @Override
     public int getItemCount() {
+        System.out.println("GET ITEM COUNT");
         if (list != null){
             return list.size();
         }

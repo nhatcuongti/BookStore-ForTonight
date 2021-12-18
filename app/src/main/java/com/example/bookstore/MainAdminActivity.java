@@ -24,7 +24,7 @@ public class MainAdminActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_product_seller);
+        setContentView(R.layout.homepage_admin);
 
         //initData();
     }
