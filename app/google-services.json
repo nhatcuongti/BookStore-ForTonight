@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "769453372200",
-    "project_id": "bookstore-clc10-cnpm",
-    "storage_bucket": "bookstore-clc10-cnpm.appspot.com"
+    "project_number": "81265175306",
+    "project_id": "bookstore-40652",
+    "storage_bucket": "bookstore-40652.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:769453372200:android:efacbb371fe359e53f561d",
+        "mobilesdk_app_id": "1:81265175306:android:ced0f99bfa498aeceb68f3",
         "android_client_info": {
           "package_name": "com.example.bookstore"
         }
       },
       "oauth_client": [
         {
-          "client_id": "769453372200-tlu8876bblrsq6ic5dpdncufq4bnckte.apps.googleusercontent.com",
+          "client_id": "81265175306-g0knc72lg6jc1k82g2jb66lc3dk8ius4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCj0JUehfJ0zfIDipyDEYluwobAZwExH9A"
+          "current_key": "AIzaSyD_1D7AqnV7tMlPzRN9Df0SN7-sa8lEsw8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "769453372200-tlu8876bblrsq6ic5dpdncufq4bnckte.apps.googleusercontent.com",
+              "client_id": "81265175306-g0knc72lg6jc1k82g2jb66lc3dk8ius4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
