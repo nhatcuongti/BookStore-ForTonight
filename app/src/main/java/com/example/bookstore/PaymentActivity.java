@@ -10,13 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookstore.adapters.ItemAdapter;
 import com.example.bookstore.models.ItemOrderModel;
+import com.example.bookstore.models.ProductModel;
 import com.example.bookstore.utils.ProcessCurrency;
 
 import java.util.ArrayList;
 
-public class PaymentActivity extends AppCompatActivity implements ItemAdapter.AdapterUpdate{
+public class PaymentActivity extends AppCompatActivity implements ItemAdapter.AdapterUpdate, ItemAdapter.OnProductListener {
 
-    ArrayList<ItemOrderModel> listItems = new ArrayList<>();
+    ArrayList<ProductModel> listItems = new ArrayList<>();
     RecyclerView rv;
     ItemAdapter ia;
 
@@ -25,7 +26,7 @@ public class PaymentActivity extends AppCompatActivity implements ItemAdapter.Ad
         setContentView(R.layout.payment_screen);
 
         initData();
-        ia = new ItemAdapter(listItems, this);
+        ia = new ItemAdapter(listItems, this, this);
 
         rv.setAdapter(ia);
         rv.setLayoutManager(new LinearLayoutManager(this));
@@ -35,9 +36,9 @@ public class PaymentActivity extends AppCompatActivity implements ItemAdapter.Ad
 
     private void initData() {
         rv = findViewById(R.id.view);
-        listItems.add(new ItemOrderModel(R.drawable.dac_nhan_tam, "Đắc nhân tâm", 350000));
-        listItems.add(new ItemOrderModel(R.drawable.nha_gia_kim, "Nhà giả kim", 150000));
-        listItems.add(new ItemOrderModel(R.drawable.tu_duy_phan_bien, "Tư duy phản biện", 500000));
+        listItems.add(new ProductModel(R.drawable.dac_nhan_tam, "Đắc nhân tâm", 350000, 0,""));
+        listItems.add(new ProductModel(R.drawable.nha_gia_kim, "Nhà giả kim", 150000, 0, ""));
+        listItems.add(new ProductModel(R.drawable.tu_duy_phan_bien, "Tư duy phản biện", 500000, 0, ""));
 
 
     }
@@ -53,6 +54,11 @@ public class PaymentActivity extends AppCompatActivity implements ItemAdapter.Ad
         //int totalCostValue = ProcessCurrency.convertStringToNumber(totalCost.getText().toString());// Lấy tổng chi phí của toàn bộ sản phẩm trong đơn hàng
         //totalCostValue = (isPlus) ? totalCostValue + money : totalCostValue - money; // Thay đổi tùy vào isPlus
         //totalCost.setText(ProcessCurrency.convertNumberToString(totalCostValue)); // Set lại giá trị khi đã tính toán xong
+
+    }
+
+    @Override
+    public void onProductClick(int positionProduct) {
 
     }
 }
