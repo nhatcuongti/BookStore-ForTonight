@@ -3,6 +3,7 @@ package com.example.bookstore;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookstore.models.ProductModel;
+import com.example.bookstore.utils.ManageLogCart;
 
 /**
  * Created by reiko-lhnhat on 12/3/2021.
@@ -21,6 +23,9 @@ public class BuyerDetailProductActivity extends AppCompatActivity {
     private TextView  quantityProduct;
     private TextView  descriptionProduct;
     private ImageButton backward;
+    Button addToCartBtn;
+
+    private ProductModel product = null;
 
 
     @Override
@@ -34,9 +39,11 @@ public class BuyerDetailProductActivity extends AppCompatActivity {
         quantityProduct = findViewById(R.id.quantityatDetail);
         descriptionProduct = findViewById(R.id.descriptionProduct);
         backward = findViewById(R.id.backward_from_detailproduct_buyer);
+        addToCartBtn = findViewById(R.id.addtocart_detail_buyer);
+
 
         Intent intent = getIntent();
-        ProductModel product = (ProductModel) intent.getSerializableExtra("clickProduct_ProductDetail");
+        product = (ProductModel) intent.getSerializableExtra("clickProduct_ProductDetail");
         imageProduct.setImageResource(product.getImg());
         nameProduct.setText(product.getName());
         priceProduct.setText("Price: " + product.getPrice() +"vnđ");
@@ -49,5 +56,13 @@ public class BuyerDetailProductActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        addToCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ManageLogCart.writeProductToFile(product, getApplicationContext());
+            }
+        });
     }
+
 }

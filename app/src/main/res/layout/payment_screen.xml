@@ -14,7 +14,7 @@
         android:background="#CB2CFAF3">
 
         <ImageButton
-            android:id="@+id/backward_from_detailproduct_buyer"
+            android:id="@+id/backward_from_payment_buyer"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="5dp"

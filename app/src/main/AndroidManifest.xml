@@ -10,7 +10,7 @@
         android:theme="@style/Theme.BookStore" >
 
         <activity
-            android:name=".PaymentActivity"
+            android:name=".MainBuyerHomepageActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +20,14 @@
         </activity>
 
         <activity android:name=".BuyerDetailProductActivity">
+
+        </activity>
+
+        <activity android:name=".PaymentActivity">
+
+        </activity>
+
+        <activity android:name=".BuyerCartActivity">
 
         </activity>
     </application>
