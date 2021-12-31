@@ -10,7 +10,7 @@
         android:theme="@style/Theme.BookStore" >
 
         <activity
-            android:name=".BuyerCartActivity"
+            android:name=".Firebase"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
