@@ -81,7 +81,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/phone"
             android:layout_marginTop="8dp"
-            android:padding="16dp"/>
+            android:inputType="number"
+            android:padding="16dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/view"
@@ -108,7 +109,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="11dp"
                 android:layout_toStartOf="@+id/dong"
-                android:text="1,000,000"
                 android:textColor="@color/purple_500"
                 android:textSize="20dp" />
 
@@ -126,16 +126,17 @@
                 android:id="@+id/phi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/tong"
                 android:text="Phí vận chuyển"
                 android:textColor="@color/black"
-                android:textSize="20dp"
-                android:layout_below="@+id/tong"/>
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/hao"
-                android:layout_marginEnd="15dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="13dp"
                 android:layout_toStartOf="@+id/dong1"
                 android:text="50,000"
                 android:textColor="@color/purple_500"
@@ -170,11 +171,11 @@
             android:textSize="20dp"/>
 
         <TextView
+            android:id="@+id/tong_tien"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1,050,000"
             android:textColor="@color/purple_500"
-            android:textSize="20dp"/>
+            android:textSize="20dp" />
 
         <TextView
             android:layout_width="wrap_content"

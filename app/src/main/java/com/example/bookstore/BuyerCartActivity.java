@@ -32,7 +32,7 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
 
 
         initData();
-        ia = new ItemAdapter(listItems, this, this);
+        ia = new ItemAdapter(listItems, this, this, this);
 
         rv.setAdapter(ia);
         rv.setLayoutManager(new LinearLayoutManager(this));

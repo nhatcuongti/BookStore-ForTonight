@@ -10,7 +10,7 @@
         android:theme="@style/Theme.BookStore" >
 
         <activity
-            android:name=".Firebase"
+            android:name=".PaymentActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,6 +1,8 @@
 package com.example.bookstore.adapters;
 
 
+import android.app.Activity;
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,11 +29,26 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
     ArrayList<ProductModel> itemLists;
     AdapterUpdate updateInterface;
     OnProductListener onProductListener;
+    Context context;
 
-    public ItemAdapter(ArrayList<ProductModel> itemLists, AdapterUpdate updateInterface, OnProductListener onProductListener) {
+    public ItemAdapter(ArrayList<ProductModel> itemLists, AdapterUpdate updateInterface, OnProductListener onProductListener, Context context
+    ) {
         this.itemLists = itemLists;
         this.updateInterface = updateInterface;
         this.onProductListener = onProductListener;
+        this.context = context;
+
+        int S = 0;
+        for (ProductModel product : itemLists)
+        {
+            S += product.getPriceTmp();
+        }
+        TextView gia_ca = ((Activity) context).findViewById(R.id.hao);
+        gia_ca.setText(String.valueOf(S));
+
+        TextView tong_tt = ((Activity) context).findViewById(R.id.tong_tien);
+        tong_tt.setText(String.valueOf(S + 50000));
+
     }
 
     @NonNull
@@ -58,6 +75,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
                 holder.numberProductView.setText(String.valueOf(numberProduct + 1));
                 updateInterface.UpdateTotalCostAndProduct(true, ProcessCurrency.convertStringToNumber(holder.priceView.getText().toString()));
 
+                TextView gia_ca = ((Activity) context).findViewById(R.id.hao);
+                int hao = Integer.valueOf(gia_ca.getText().toString());
+                TextView tong_tt = ((Activity) context).findViewById(R.id.tong_tien);
+                tong_tt.setText(String.valueOf(5000 + hao + ProcessCurrency.convertStringToNumber(holder.priceView.getText().toString())));
+                gia_ca.setText(String.valueOf(hao + ProcessCurrency.convertStringToNumber(holder.priceView.getText().toString())));
+
                 itemLists.get(Fposition).setQuantity(numberProduct + 1);
 
                 notifyDataSetChanged();
@@ -69,6 +92,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
             public void onClick(View v) {
                 int numberProduct = Integer.valueOf(holder.numberProductView.getText().toString()).intValue();
                 updateInterface.UpdateTotalCostAndProduct(false, ProcessCurrency.convertStringToNumber(holder.priceView.getText().toString()));
+
+                TextView gia_ca = ((Activity) context).findViewById(R.id.hao);
+                int hao = Integer.valueOf(gia_ca.getText().toString());
+                TextView tong_tt = ((Activity) context).findViewById(R.id.tong_tien);
+                tong_tt.setText(String.valueOf(50000 + hao - ProcessCurrency.convertStringToNumber(holder.priceView.getText().toString())));
+                gia_ca.setText(String.valueOf(hao - ProcessCurrency.convertStringToNumber(holder.priceView.getText().toString())));
 
                 if (numberProduct - 1 == 0)
                     itemLists.remove(Fposition);

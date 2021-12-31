@@ -26,7 +26,7 @@ public class PaymentActivity extends AppCompatActivity implements ItemAdapter.Ad
         setContentView(R.layout.payment_screen);
 
         initData();
-        ia = new ItemAdapter(listItems, this, this);
+        ia = new ItemAdapter(listItems, this, this, this);
 
         rv.setAdapter(ia);
         rv.setLayoutManager(new LinearLayoutManager(this));
