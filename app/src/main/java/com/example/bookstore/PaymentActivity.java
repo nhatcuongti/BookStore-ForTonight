@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,9 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookstore.adapters.ItemAdapter;
-import com.example.bookstore.models.ItemOrderModel;
 import com.example.bookstore.models.ProductModel;
-import com.example.bookstore.utils.ProcessCurrency;
+import com.example.bookstore.utils.CustomLinearLayoutManager;
 
 import java.util.ArrayList;
 
@@ -28,13 +26,21 @@ public class PaymentActivity extends AppCompatActivity implements ItemAdapter.Ad
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.payment_screen);
+        setContentView(R.layout.layout_payment_buyer);
 
         initData();
+        View Payment_toolbar = findViewById(R.id.payment_toolbar_buyer);
+        if (listItems.size() == 0)
+            Payment_toolbar.setVisibility(View.GONE);
+        else
+            Payment_toolbar.setVisibility(View.VISIBLE);
+
         ia = new ItemAdapter(listItems, this, this, this);
 
         rv.setAdapter(ia);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+        CustomLinearLayoutManager linearLayoutManager = new CustomLinearLayoutManager(this);
+        linearLayoutManager.setScrollEnabled(false);
+        rv.setLayoutManager(linearLayoutManager);
 
         backward = findViewById(R.id.backward_from_payment_buyer);
         backward.setOnClickListener(new View.OnClickListener() {

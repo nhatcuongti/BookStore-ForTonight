@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bookstore.R;
 import com.example.bookstore.models.ItemOrderModel;
 import com.example.bookstore.models.ProductModel;
+import com.example.bookstore.utils.ManageLogCart;
 import com.example.bookstore.utils.ProcessCurrency;
 
 import java.util.ArrayList;
@@ -97,6 +98,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
                 }
 
                 itemLists.get(Fposition).setQuantity(numberProduct + 1);
+                ManageLogCart.writeListProductToFile(itemLists, context.getApplicationContext());
 
                 notifyDataSetChanged();
             }
@@ -124,6 +126,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>  {
                     holder.numberProductView.setText(String.valueOf(numberProduct - 1));
                     itemLists.get(Fposition).setQuantity(numberProduct - 1);
                 }
+
+                if (itemLists.size() == 0){
+                    if (gia_ca != null){
+                        View payment_toolbar = ((Activity) context).findViewById(R.id.payment_toolbar_buyer);
+                        payment_toolbar.setVisibility(View.GONE);
+                    }
+                    else{
+                        View order_toolbar = ((Activity) context).findViewById(R.id.order_toolbar);
+                        order_toolbar.setVisibility(View.GONE);
+                    }
+                }
+                ManageLogCart.writeListProductToFile(itemLists, context.getApplicationContext());
 
                 Log.i("adapter", "Button Decrease of " + Fposition);
                 notifyDataSetChanged();

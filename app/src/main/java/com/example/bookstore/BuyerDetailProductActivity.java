@@ -2,11 +2,13 @@ package com.example.bookstore;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,7 +25,8 @@ public class BuyerDetailProductActivity extends AppCompatActivity {
     private TextView  quantityProduct;
     private TextView  descriptionProduct;
     private ImageButton backward;
-    Button addToCartBtn;
+    private ImageButton cartBtn;
+    private Button addToCartBtn;
 
     private ProductModel product = null;
 
@@ -40,6 +43,7 @@ public class BuyerDetailProductActivity extends AppCompatActivity {
         descriptionProduct = findViewById(R.id.descriptionProduct);
         backward = findViewById(R.id.backward_from_detailproduct_buyer);
         addToCartBtn = findViewById(R.id.addtocart_detail_buyer);
+        cartBtn = findViewById(R.id.button_cart_detail_buyer);
 
 
         Intent intent = getIntent();
@@ -60,7 +64,19 @@ public class BuyerDetailProductActivity extends AppCompatActivity {
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ManageLogCart.writeProductToFile(product, getApplicationContext());
+                ProductModel productModel = new ProductModel(product);
+                ManageLogCart.writeProductToFile(productModel, getApplicationContext());
+                Toast toast = Toast.makeText(BuyerDetailProductActivity.this, "Thêm sản phẩm thành công", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+            }
+        });
+
+        cartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(BuyerDetailProductActivity.this, BuyerCartActivity.class);
+                BuyerDetailProductActivity.this.startActivity(intent1);
             }
         });
     }

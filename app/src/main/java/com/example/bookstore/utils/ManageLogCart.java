@@ -33,7 +33,6 @@ public class ManageLogCart  {
 
             oos.writeObject(listProduct);
 
-            Toast.makeText(context, "Write to file " + context.getFilesDir() + "/" + pathFile, Toast.LENGTH_SHORT).show();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -58,21 +57,35 @@ public class ManageLogCart  {
         }
     }
 
+    private static boolean formatProduct(ArrayList<ProductModel> listProduct, ProductModel product){
+        for (ProductModel productModel : listProduct)
+            if (productModel.getName().equals(product.getName())){
+                int quantity = productModel.getQuantity();
+                productModel.setQuantity(quantity + 1);
+                return true;
+            }
+
+        return false;
+    }
+
     public static void writeProductToFile(ProductModel product, Context context){
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
+            ArrayList<ProductModel> listProduct = getListProductFromFile(context);
             oos = new ObjectOutputStream(context.openFileOutput(pathFile, Context.MODE_PRIVATE));
 //            oos = new ObjectOutputStream(fos);
 
-            ArrayList<ProductModel> listProduct = getListProductFromFile(context);
+            Log.i("listProduct", "listProduct: " + listProduct);
+            Log.i("Context1", "Context: " + context);
             if (listProduct == null)
                 listProduct = new ArrayList<>();
-            listProduct.add(product);
+
+            if (!formatProduct(listProduct, product))
+                listProduct.add(product);
 
             oos.writeObject(listProduct);
 
-            Toast.makeText(context, "Write to file " + context.getFilesDir() + "/" + pathFile, Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
