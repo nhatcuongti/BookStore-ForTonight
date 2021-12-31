@@ -37,7 +37,7 @@ public class BuyerDetailProductActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         ProductModel product = (ProductModel) intent.getSerializableExtra("clickProduct_ProductDetail");
-        imageProduct.setImageResource(R.mipmap.img);
+        imageProduct.setImageResource(product.getImg());
         nameProduct.setText(product.getName());
         priceProduct.setText("Price: " + product.getPrice() +"vnđ");
         quantityProduct.setText("Quanity: " + Integer.toString(product.getQuantity()));

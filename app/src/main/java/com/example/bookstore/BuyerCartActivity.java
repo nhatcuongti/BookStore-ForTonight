@@ -4,37 +4,48 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.bookstore.adapters.ItemAdapter;
 import com.example.bookstore.models.ItemOrderModel;
+import com.example.bookstore.models.ProductModel;
 import com.example.bookstore.utils.ProcessCurrency;
 
 import java.util.ArrayList;
 
-public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.AdapterUpdate {
+public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.AdapterUpdate, ItemAdapter.OnProductListener {
 
-    ArrayList<ItemOrderModel> listItems = new ArrayList<>();
+    ArrayList<ProductModel> listItems = new ArrayList<>();
     RecyclerView rv;
     ItemAdapter ia;
+    ImageButton backward = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buyer_cart);
+        setContentView(R.layout.layout_buyer_cart);
 
 
 
         initData();
-        ia = new ItemAdapter(listItems, this);
+        ia = new ItemAdapter(listItems, this, this);
 
         rv.setAdapter(ia);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
         TextView v = findViewById(R.id.totalCostProduct);
 
-
+        backward = findViewById(R.id.backward_from_cart_buyer);
+        backward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     /**
@@ -44,9 +55,9 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
      */
     private void initData() {
         rv = findViewById(R.id.recyclerView);
-        listItems.add(new ItemOrderModel(R.drawable.dac_nhan_tam, "Đắc nhân tâm", 350000));
-        listItems.add(new ItemOrderModel(R.drawable.nha_gia_kim, "Nhà giả kim", 150000));
-        listItems.add(new ItemOrderModel(R.drawable.tu_duy_phan_bien, "Tư duy phản biện", 500000));
+        listItems.add(new ProductModel(R.drawable.dac_nhan_tam, "Đắc nhân tâm", 350000, 1,""));
+        listItems.add(new ProductModel(R.drawable.nha_gia_kim, "Nhà giả kim", 150000, 1, ""));
+        listItems.add(new ProductModel(R.drawable.tu_duy_phan_bien, "Tư duy phản biện", 500000, 1, ""));
 
         TextView totalCost = findViewById(R.id.totalCostProduct);
         totalCost.setText("1,000,000");
@@ -78,5 +89,13 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
         totalCostValue = (isPlus) ? totalCostValue + money : totalCostValue - money; // Thay đổi tùy vào isPlus
         totalCost.setText(ProcessCurrency.convertNumberToString(totalCostValue)); // Set lại giá trị khi đã tính toán xong
 
+    }
+
+    @Override
+    public void onProductClick(int positionProduct) {
+        ProductModel product = listItems.get(positionProduct);
+        Intent intent = new Intent(this, BuyerDetailProductActivity.class);
+        intent.putExtra("clickProduct_ProductDetail", product);
+        this.startActivity(intent);
     }
 }
