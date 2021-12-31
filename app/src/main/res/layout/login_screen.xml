@@ -66,8 +66,14 @@
         android:background="#F3F0D7"
         android:hint="Mật khẩu"
         android:padding="16dp"
+<<<<<<< HEAD
         app:layout_constraintBottom_toTopOf="@+id/button"
+=======
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/quenmk"
+>>>>>>> b72d49fc7f247baf3e54f1ed5e1601a931dcec15
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username"
         tools:ignore="MissingConstraints"
