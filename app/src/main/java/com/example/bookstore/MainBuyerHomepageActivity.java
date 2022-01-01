@@ -5,12 +5,15 @@ import androidx.appcompat.widget.SearchView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -33,12 +36,15 @@ public class MainBuyerHomepageActivity extends AppCompatActivity implements Prod
     private ArrayList<ProductModel> listProduct;
     private RecyclerView recyclerView;
     private ProductListAdapter productListAdapter;
+    private ImageButton goToCartBtn;
 
     @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage_buyer);
+
+
 
         initTopAndBottomBar();
         initData();
@@ -69,6 +75,14 @@ public class MainBuyerHomepageActivity extends AppCompatActivity implements Prod
             }
 
         });
+
+        goToCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainBuyerHomepageActivity.this, BuyerCartActivity.class);
+                MainBuyerHomepageActivity.this.startActivity(intent);
+            }
+        });
     }
 
     /**
@@ -78,6 +92,7 @@ public class MainBuyerHomepageActivity extends AppCompatActivity implements Prod
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolBar = findViewById(R.id.toolbar);
+        goToCartBtn = findViewById(R.id.carBtn_homepageBuyer);
         setSupportActionBar(toolBar);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolBar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

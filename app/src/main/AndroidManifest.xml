@@ -10,7 +10,11 @@
         android:theme="@style/Theme.BookStore" >
 
         <activity
-            android:name=".Firebase"
+<<<<<<< HEAD
+            android:name=".LoginActivity"
+=======
+            android:name=".MainBuyerHomepageActivity"
+>>>>>>> b72d49fc7f247baf3e54f1ed5e1601a931dcec15
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +23,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".BuyerDetailProductActivity">
+        <activity android:name=".RegisterActivity">
+
+        </activity>
+        <activity android:name=".MainBuyerHomepageActivity">
+
+        </activity>
+
+        <activity android:name=".PaymentActivity">
+
+        </activity>
+
+        <activity android:name=".BuyerCartActivity">
 
         </activity>
     </application>

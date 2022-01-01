@@ -6,23 +6,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.bookstore.adapters.ItemAdapter;
 import com.example.bookstore.models.ItemOrderModel;
 import com.example.bookstore.models.ProductModel;
+import com.example.bookstore.utils.ManageLogCart;
 import com.example.bookstore.utils.ProcessCurrency;
 
 import java.util.ArrayList;
 
-public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.AdapterUpdate, ItemAdapter.OnProductListener {
+public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.AdapterUpdate, ItemAdapter.OnProductListener, View.OnClickListener {
 
     ArrayList<ProductModel> listItems = new ArrayList<>();
     RecyclerView rv;
     ItemAdapter ia;
     ImageButton backward = null;
+    Button purchaseBtn = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +37,7 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
 
 
         initData();
-        ia = new ItemAdapter(listItems, this, this);
+        ia = new ItemAdapter(listItems, this, this, this);
 
         rv.setAdapter(ia);
         rv.setLayoutManager(new LinearLayoutManager(this));
@@ -46,6 +51,9 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
                 finish();
             }
         });
+
+        purchaseBtn = findViewById(R.id.purchaseBtnCart);
+        purchaseBtn.setOnClickListener(this);
     }
 
     /**
@@ -55,15 +63,28 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
      */
     private void initData() {
         rv = findViewById(R.id.recyclerView);
-        listItems.add(new ProductModel(R.drawable.dac_nhan_tam, "Đắc nhân tâm", 350000, 1,""));
-        listItems.add(new ProductModel(R.drawable.nha_gia_kim, "Nhà giả kim", 150000, 1, ""));
-        listItems.add(new ProductModel(R.drawable.tu_duy_phan_bien, "Tư duy phản biện", 500000, 1, ""));
+        listItems = ManageLogCart.getListProductFromFile(getApplicationContext());
+        if (listItems == null)
+            listItems = new ArrayList<>();
+
+        int totalCostNumber = 0;
+        int totalQuantity = 0;
+        for (ProductModel product : listItems) {
+            totalCostNumber += product.getPriceTmp() * product.getQuantity();
+            totalQuantity += product.getQuantity();
+        }
+
+        View order_toolbar = findViewById(R.id.order_toolbar);
+        if (listItems.size() == 0)
+            order_toolbar.setVisibility(View.GONE);
+        else
+            order_toolbar.setVisibility(View.VISIBLE);
 
         TextView totalCost = findViewById(R.id.totalCostProduct);
-        totalCost.setText("1,000,000");
+        totalCost.setText(ProcessCurrency.convertNumberToString(totalCostNumber));
 
         TextView totalProduct = findViewById(R.id.totalNumberProductOfCart);
-        totalProduct.setText("3");
+        totalProduct.setText(String.valueOf(totalQuantity));
     }
 
     @Override
@@ -96,6 +117,14 @@ public class BuyerCartActivity extends AppCompatActivity implements ItemAdapter.
         ProductModel product = listItems.get(positionProduct);
         Intent intent = new Intent(this, BuyerDetailProductActivity.class);
         intent.putExtra("clickProduct_ProductDetail", product);
+        this.startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(this, PaymentActivity.class);
+        intent.putExtra("listProduct_cart", listItems);
+        System.out.println("Hello");
         this.startActivity(intent);
     }
 }

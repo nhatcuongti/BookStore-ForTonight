@@ -14,6 +14,15 @@ public class ProductModel implements Serializable {
     private String description;
     private int Img;
 
+    public ProductModel(ProductModel productModel){
+        name = productModel.name;
+        price = productModel.price;
+        priceTmp = productModel.priceTmp;
+        quantity = 1;
+        description = productModel.description;
+        Img = productModel.Img;
+    }
+
     public ProductModel(String name, String price, int quantity, String description) {
         this.name = name;
         this.price = price;
