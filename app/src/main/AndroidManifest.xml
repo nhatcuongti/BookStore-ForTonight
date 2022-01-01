@@ -10,15 +10,28 @@
         android:theme="@style/Theme.BookStore" >
 
         <activity
-            android:name=".Firebase"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        android:name=".LoginActivity"
+        android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+    <activity android:name=".RegisterActivity">
 
-    </application>
+    </activity>
+    <activity android:name=".MainBuyerHomepageActivity">
 
-</manifest>
+    </activity>
+
+    <activity android:name=".PaymentActivity">
+
+    </activity>
+
+    <activity android:name=".BuyerCartActivity">
+
+    </activity>
+</application>
+
+    </manifest>

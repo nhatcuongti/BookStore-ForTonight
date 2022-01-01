@@ -54,8 +54,12 @@
         <entry key="..\:/Users/Le Trung Hieu/Desktop/SE/Project/BookStore-CNPM/app/src/main/res/layout/fragment_homepage_admin.xml" value="0.16458333333333333" />
         <entry key="..\:/Users/Le Trung Hieu/Desktop/SE/Project/BookStore-CNPM/app/src/main/res/layout/homepage_admin.xml" value="0.13360507246376813" />
         <entry key="..\:/Users/Le Trung Hieu/Desktop/SE/Project/BookStore-CNPM/app/src/main/res/layout/homepage_buyer.xml" value="0.13360507246376813" />
-        <entry key="..\:/Users/Le Trung Hieu/Desktop/SE/Project/BookStore-CNPM/app/src/main/res/layout/homepage_seller.xml" value="0.13360507246376813" />
+        <entry key="..\:/Users/Le Trung Hieu/Desktop/SE/Project/BookStore-CNPM/app/src/main/res/layout/homepage_seller.xml" value="0.2" />
+        <entry key="..\:/Users/Le Trung Hieu/Desktop/SE/Project/BookStore-CNPM/app/src/main/res/layout/layout_buyer_cart.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Le Trung Hieu/Desktop/SE/Project/BookStore-CNPM/app/src/main/res/layout/layout_payment_buyer.xml" value="0.1" />
         <entry key="..\:/Users/Le Trung Hieu/Desktop/SE/Project/BookStore-CNPM/app/src/main/res/layout/layout_product_management.xml" value="0.176" />
+        <entry key="..\:/Users/Le Trung Hieu/Desktop/SE/Project/BookStore-CNPM/app/src/main/res/layout/layout_products_cart.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Le Trung Hieu/Desktop/SE/Project/BookStore-CNPM/app/src/main/res/layout/layout_report.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Le Trung Hieu/Desktop/SE/Project/BookStore-CNPM/app/src/main/res/layout/login_screen.xml" value="0.264" />
         <entry key="..\:/Users/Le Trung Hieu/Desktop/SE/Project/BookStore-CNPM/app/src/main/res/layout/payment_screen.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/Le Trung Hieu/Desktop/SE/Project/BookStore-CNPM/app/src/main/res/layout/product_management_seller.xml" value="0.17844202898550723" />
